@@ -2,6 +2,7 @@ package com.tan.service;
 
 import com.tan.entity.Dish;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.tan.entity.dto.DishDto;
 
 /**
  * <p>
@@ -13,4 +14,9 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface DishService extends IService<Dish> {
 
+    void addDish(DishDto dishDto);
+
+    DishDto getINfo(Long id);
+
+    void updateDish(DishDto dishDto);
 }

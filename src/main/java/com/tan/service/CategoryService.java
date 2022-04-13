@@ -2,6 +2,7 @@ package com.tan.service;
 
 import com.tan.entity.Category;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.tan.utils.R;
 
 /**
  * <p>
@@ -13,4 +14,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface CategoryService extends IService<Category> {
 
+    R delete(Long id);
 }

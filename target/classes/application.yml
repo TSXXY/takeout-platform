@@ -9,6 +9,8 @@ spring:
       url: jdbc:mysql://localhost:3306/takeout?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
       username: root
       password: 123456
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
 mybatis-plus:
   configuration:
     #在映射实体或者属性时，将数据库中表名和字段名中的下划线去掉，按照驼峰命名法映射
@@ -19,3 +21,6 @@ mybatis-plus:
       #id自增
       id-type: ASSIGN_ID
   mapper-locations: classpath:com/tan/mapper/xml/*.xml
+
+takeout:
+  path: H:\MyStudy\takeout-platform\src\main\resources\img\

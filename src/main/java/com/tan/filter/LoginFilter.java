@@ -6,6 +6,7 @@ package com.tan.filter;
  */
 
 import com.alibaba.fastjson.JSON;
+import com.tan.utils.BaseContext;
 import com.tan.utils.R;
 import org.springframework.util.AntPathMatcher;
 
@@ -32,6 +33,7 @@ public class LoginFilter implements Filter {
         String[] strings = new String[]{
                 "/employee/login",
                 "/backend/images/**",
+                "/backend/page/login/**",
                 "/backend/js/**",
                 "/backend/api/**",
                 "/backend/styles/**",
@@ -41,6 +43,7 @@ public class LoginFilter implements Filter {
                 "/front/api/**",
                 "/front/styles/**",
                 "/front/fonts/**",
+                "/swagger-ui.html"
         };
         boolean check = this.check(strings, uri);
 
@@ -50,6 +53,9 @@ public class LoginFilter implements Filter {
         }
 
         if (httpServletRequest.getSession().getAttribute("employee")!=null){
+
+            Long id = (Long) httpServletRequest.getSession().getAttribute("employee");
+            BaseContext.set(id);
             chain.doFilter(httpServletRequest, httpServletResponse);
             return ;
         }
