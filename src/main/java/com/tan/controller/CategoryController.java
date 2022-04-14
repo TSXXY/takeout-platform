@@ -88,9 +88,7 @@ public class CategoryController {
     @GetMapping("/list")
     public R getList(Category category){
         LambdaQueryWrapper<Category> lambdaQueryWrapper = new LambdaQueryWrapper<>();
-        if (ObjectUtils.isEmpty(category.getType())){
-            lambdaQueryWrapper.eq(Category::getType,category.getType());
-        }
+            lambdaQueryWrapper.eq(category.getType() != null,Category::getType,category.getType());
         lambdaQueryWrapper.orderByAsc(Category::getSort).orderByDesc(Category::getUpdateTime);
         List<Category> list = categoryService.list(lambdaQueryWrapper);
         return R.success(list);

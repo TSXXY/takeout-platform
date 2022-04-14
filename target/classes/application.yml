@@ -1,6 +1,11 @@
 server:
   port: 9999
 spring:
+  mail:
+    host: smtp.qq.com
+    username: 3142511552@qq.com
+    password: uhqsvomqiyxcdgga
+    default-encoding: utf-8
   application:
     name: reggie_take_out
   datasource:

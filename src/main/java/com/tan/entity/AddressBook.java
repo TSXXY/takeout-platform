@@ -67,7 +67,7 @@ public class AddressBook implements Serializable {
     private String label;
 
     @ApiModelProperty(value = "默认 0 否 1是")
-    private Boolean isDefault;
+    private Integer isDefault;
 
     @TableField(fill = FieldFill.INSERT)
     @ApiModelProperty(value = "创建时间")

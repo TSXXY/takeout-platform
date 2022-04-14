@@ -43,6 +43,9 @@ public class LoginFilter implements Filter {
                 "/front/api/**",
                 "/front/styles/**",
                 "/front/fonts/**",
+                "/front/page/login.html",
+                "/user/sendMsg",
+                "/user/login",
                 "/swagger-ui.html"
         };
         boolean check = this.check(strings, uri);
@@ -56,6 +59,14 @@ public class LoginFilter implements Filter {
 
             Long id = (Long) httpServletRequest.getSession().getAttribute("employee");
             BaseContext.set(id);
+            chain.doFilter(httpServletRequest, httpServletResponse);
+            return ;
+        }
+
+        if (httpServletRequest.getSession().getAttribute("user")!=null){
+
+            Long userId = (Long) httpServletRequest.getSession().getAttribute("user");
+            BaseContext.set(userId);
             chain.doFilter(httpServletRequest, httpServletResponse);
             return ;
         }
